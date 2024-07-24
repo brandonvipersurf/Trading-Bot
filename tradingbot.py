@@ -8,15 +8,11 @@ from timedelta import Timedelta
 from finbert_utils import estimate_sentiment;
 import os
 
-API_KEY = os.getenv("API_KEY")
-API_SECRET = os.getenv("API_SECRET")
-BASE_URL = os.getenv("BASE_URL")
 
-ALPACA_CREDS = {
-    "API_KEY": API_KEY,
-    "API_SECRET": API_SECRET,
-    "PAPER": True,
-}
+API_KEY = os.environ["API_KEY"]
+API_SECRET = os.environ["API_SECRET"]
+BASE_URL = os.environ["API_URL"]
+
 #https://lumibot.lumiwealth.com/#step-2-create-a-strategy-for-backtesting
 class MLTrader(Strategy):
     def initialize(self, symbol:str="SPY", cash_at_risk:float = .5):
@@ -24,7 +20,7 @@ class MLTrader(Strategy):
         self.sleeptime = "24H"
         self.last_trade = None
         self.cash_at_risk = cash_at_risk
-        self.api = REST(base_url=BASE_URL, key_id=API_KEY, secret_key=API_SECRET)
+        self.api = REST(base_url=os.environ["API_URL"], key_id=os.environ["API_KEY"], secret_key=os.environ["API_SECRET"])
         pass
     def position_sizing (self):
         cash = self.get_cash()
@@ -67,6 +63,11 @@ start_date = datetime(2023,12,15)
 end_date = datetime(2023,12,31)
    
 
+ALPACA_CREDS = {
+    "API_KEY": API_KEY,
+    "API_SECRET": API_SECRET,
+    "PAPER": True,
+}
 
 broker = Alpaca(ALPACA_CREDS)  
 

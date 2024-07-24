@@ -4,43 +4,43 @@ This project contains a trading bot that uses the Alpaca API for trading and Fin
 Prerequisites
 Before you begin, ensure you have met the following requirements:
 
-You have installed Python 3.7 or higher.
-You have an Alpaca account and API credentials.
-You have an internet connection to install the required libraries and interact with the APIs.
-Installation
+- You have installed Python 3.7 or higher.
+- [You have an Alpaca account and API credentials.](https://app.alpaca.markets/signup) 
+- You have an internet connection to install the required libraries and interact with the APIs.
+- Docker installed (Optional)
+# Installation
+Clone the repo:  
+`git clone https://github.com/brandonvipersurf/Trading-Bot.git`  
+[Create your Alpca Account and get your API Keys](https://scribehow.com/shared/Create_Alpaca_Account_and_Generate_API_Keys__N6jrgemVRu6lLP7EGiSxEA)  
+Set your Keys as Environment Variables
+```
+echo "export API_KEY = 'your_alpaca_api_key'" >> ~/.bashrc
+echo "export API_SECRET = 'your_alpaca_api_secret'" >> ~/.bashrc
+```
 
-Install the required libraries:
-bash
-Copy code
+## Traditional  
+- Install python 3.7  
+- Install the required libraries:
+```bash
 pip install -r requirements.txt
-Configuration
-Update your Alpaca API credentials in tradingbot.py:
+```
+## Docker
+- Install Docker
+- Run following commands:
+```
+docker compose build
+```
 
-python
-Copy code
-API_KEY = "your_alpaca_api_key"
-API_SECRET = "your_alpaca_api_secret"
-BASE_URL = "https://api.alpaca.markets"
-Usage
-To run the trading bot, execute the following command:
+# Usage
+To run the trading bot, execute the following command:  
+Docker: `docker compose run app`  
+bash: `python tradingbot.py` 
 
-bash
-Copy code
-python tradingbot.py
 The bot will backtest the strategy using historical data and output the results.
 
-Files
-tradingbot.py: Contains the main trading bot logic.
-finbert_utils.py: Contains utility functions for sentiment analysis using FinBERT.
-Requirements
-Create a requirements.txt file with the following content:
+## Files  
+tradingbot.py: Contains the main trading bot logic.  
+finbert_utils.py: Contains utility functions for sentiment analysis using FinBERT.  
 
-Copy code
-alpaca-trade-api
-lumibot
-transformers
-torch
-pandas
-numpy
-License
+## License
 This project is licensed under the MIT License - see the LICENSE file for details.
