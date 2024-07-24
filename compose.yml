@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    entrypoint: /bin/bash
+    volumes:
+      - .:/app
+    environment:
+      API_KEY:
+      API_SECRET:
+      API_URL: https://paper-api.alpaca.markets/v2
