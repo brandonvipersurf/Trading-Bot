@@ -1,0 +1,6 @@
+alpaca-trade-api
+lumibot
+transformers
+torch
+pandas
+numpy

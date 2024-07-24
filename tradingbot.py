@@ -6,10 +6,12 @@ from datetime import datetime
 from alpaca_trade_api import REST
 from timedelta import Timedelta
 from finbert_utils import estimate_sentiment;
+import os
 
-API_KEY = "PK6JSO5R7PXFCOFVQNMA"
-API_SECRET = "B3rzXpwxHe2VXi2J4ugMsc1FlTWKVNO1AXgMaAZZ"
-BASE_URL = "https://api.alpaca.markets"
+API_KEY = os.getenv("API_KEY")
+API_SECRET = os.getenv("API_SECRET")
+BASE_URL = os.getenv("BASE_URL")
+
 ALPACA_CREDS = {
     "API_KEY": API_KEY,
     "API_SECRET": API_SECRET,
