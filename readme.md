@@ -41,6 +41,3 @@ The bot will backtest the strategy using historical data and output the results.
 ## Files  
 tradingbot.py: Contains the main trading bot logic.  
 finbert_utils.py: Contains utility functions for sentiment analysis using FinBERT.  
-
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
